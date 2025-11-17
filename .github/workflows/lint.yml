@@ -19,8 +19,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install flake8 flake8-unused-import
-
+          pip install flake8
+          
       - name: Run lint checks
         run: |
           flake8 .
