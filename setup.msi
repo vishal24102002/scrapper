@@ -1,0 +1,54 @@
+# Name of the installer
+OutFile "Scraper_and_transcriptor_installer.exe"
+
+# Installation directory
+InstallDir "$PROGRAMFILES\Scraper and transcriptor"
+
+# Request admin privileges
+RequestExecutionLevel admin
+
+Section "Install"
+
+    # Set output path to the installation directory
+    SetOutPath "$INSTDIR"
+
+    # Include the executable file from the 'dist' directory
+    File "dist\\updated_corrected_guimain_with_deps.exe"
+
+    # Create shortcuts
+    CreateShortcut "$DESKTOP\\Scraper and transcriptor.lnk" "$INSTDIR\\updated_corrected_guimain_with_deps.exe"
+    CreateShortcut "$SMPROGRAMS\\Scraper and transcriptor\\Scraper and transcriptor.lnk" "$INSTDIR\\updated_corrected_guimain_with_deps.exe"
+
+    # Write uninstaller
+    WriteUninstaller "$INSTDIR\\uninstall.exe"
+
+    # Add uninstaller to registry
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "DisplayName" "Scraper and transcriptor"
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "UninstallString" "$INSTDIR\\uninstall.exe"
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "InstallLocation" "$INSTDIR"
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "DisplayIcon" "$INSTDIR\\updated_corrected_guimain_with_deps.exe"
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "Publisher" "Your Publisher Name"
+    WriteRegStr HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "DisplayVersion" "1.0.0"
+    WriteRegDWORD HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "NoModify" 1
+    WriteRegDWORD HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor" "NoRepair" 1
+
+SectionEnd
+
+Section "Uninstall"
+
+    # Remove shortcuts
+    Delete "$DESKTOP\\Scraper and transcriptor.lnk"
+    Delete "$SMPROGRAMS\\Scraper and transcriptor\\Scraper and transcriptor.lnk"
+
+    # Remove application files and directory
+    Delete "$INSTDIR\\updated_corrected_guimain_with_deps.exe"
+    Delete "$INSTDIR\\uninstall.exe"
+    RMDir "$INSTDIR"
+
+    # Remove Start Menu directory if empty
+    RMDir "$SMPROGRAMS\\Scraper and transcriptor"
+
+    # Remove uninstaller entry from the registry
+    DeleteRegKey HKLM "Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Scraper and transcriptor"
+
+SectionEnd

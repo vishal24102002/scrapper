@@ -1,0 +1,10 @@
+babel==2.17.0
+pyaes==1.6.1
+pyasn1==0.6.1
+PyQt6==6.10.0
+PyQt6-Qt6==6.10.0
+PyQt6_sip==13.10.2
+python-decouple==3.8
+rsa==4.9.1
+Telethon==1.42.0
+tkcalendar==1.6.1

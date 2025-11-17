@@ -1,0 +1,36 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+.env
+5ai-scrapper/
+.env/
+
+# Node / Angular
+node_modules/
+dist/
+.env
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled output
+*.class
+*.o
+*.exe
+
+# Environment / Secrets
+*.env
+.env.local
+
+#sessions-file
+*.session
+
