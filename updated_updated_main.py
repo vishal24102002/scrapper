@@ -33,13 +33,6 @@ for package in required_packages:
         print(f'{package} is missing. Installing...')
         install(package)
 
-# Check tkinter separately since it's part of the standard library
-try:
-    import tkinter
-except ImportError:
-    print("tkinter is missing. Please ensure it's included in your Python installation.")
-    sys.exit(1)
-
 try:
     from Scrapper_main import start_scraping  # Importing the start_scraping function from updated_scraper.py
 except ImportError as e:
